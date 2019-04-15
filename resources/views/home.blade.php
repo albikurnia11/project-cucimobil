@@ -39,7 +39,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="">Tambah Data</a>
+          <a class="dropdown-item" href="{{ url('/form') }}">Tambah Data</a>
           <a class="dropdown-item" href="">Daftar Harga</a>
           <a class="dropdown-item" href="">Promo</a>
           <a class="dropdown-item" href="">Data Perbulan</a>

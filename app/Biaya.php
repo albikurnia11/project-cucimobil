@@ -10,7 +10,7 @@ class Biaya extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'jenis',
+        'jenis_mobil',
         'harga',
     ];
 

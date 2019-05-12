@@ -13,9 +13,10 @@ class Transaksi extends Model
         'no_nota',
         'jenis',
         'nama',
+        'biaya',
         'bayar',
+        'diskon_harga',
         'kembali',
-        'total',
         'tanggal'
 
     ];
@@ -23,10 +24,5 @@ class Transaksi extends Model
     public function biaya()
     {
     	return $this->belongsTo('App\Biaya');
-    }
-
-    public function diskon()
-    {
-    	return $this->belongsTo('App\Diskon');
     }
 }

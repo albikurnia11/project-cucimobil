@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Transaksi;
-use App\Biaya;
+use App\Diskon;
 
-class Transaksis extends Controller
+class DiskonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class Transaksis extends Controller
      */
     public function index()
     {
-        $data['data'] = Transaksi::all();
-        // dd($data);
-        return view('transaksi.form', $data);
+        $data = Diskon::all();
+        return view('diskon.form',compact('data'));
     }
 
     /**
@@ -28,8 +26,8 @@ class Transaksis extends Controller
      */
     public function create()
     {
-       $biayas = Biaya::pluck('jenis_mobil', 'id');
-        return view('transaksi.tambah', compact('biayas'));
+        // $diskons = Diskon::pluck('Harga_Promo', 'id');
+        return view('diskon.tambah');
     }
 
     /**
@@ -40,15 +38,9 @@ class Transaksis extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Transaksi([
-            'no_nota' => $request->get('no_nota'),
-            'jenis' => $request->get('jenis'),
-            'nama' => $request->get('nama'),
-            'biaya' => $request->get('biaya'),
-            'bayar' => $request->get('bayar'),
-            'diskon_harga' => $request->get('diskon_harga'),
-            'kembali' => $request->get('kembali'),
-            'tanggal' => $request->get('tanggal')
+        $data = new Diskon([
+            'Promo' => $request->get('Promo'),
+            'Harga_Promo' => $request->get('Harga_Promo'),
             ]);
         $data->save();
         return redirect('/home')->with('Success', 'Data Telah Tersimpan!');
@@ -73,9 +65,9 @@ class Transaksis extends Controller
      */
     public function edit($id)
     {
-        $data = Transaksi::find($id);
-        $diskons = Diskon::get();
-        return view('transaksi.edit', compact('data','diskons'));
+        $data = Diskon::find($id);
+        //$diskons = Diskon::get();
+        return view('diskon.edit', compact('data','diskons'));
     }
 
     /**
@@ -87,15 +79,9 @@ class Transaksis extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Transaksi::find($id);
-        $data->no_nota = $request->get('no_nota');
-        $data->jenis = $request->get('jenis');
-        $data->nama = $request->get('nama');
-        $data->bayar = $request->get('bayar');
-        $data->biaya = $request->get('biaya');
-        $data->diskon_harga = $request->get('diskon_harga');
-        $data->kembali = $request->get('kembali');
-        $data->tanggal = $request->get('tanggal');
+        $data = Diskon::find($id);
+        $data->Promo = $request->get('Promo');
+        $data->Harga_Promo = $request->get('Harga_Promo');
         $data->save();
 
         return redirect('/home')->with('Success', 'Data Telah Di Update!');
@@ -109,7 +95,7 @@ class Transaksis extends Controller
      */
     public function destroy($id)
     {
-        $data = Transaksi::find($id);
+        $data = Diskon::find($id);
         $data->delete();
 
         return redirect('/home')->with('Success', 'Data Telah Di Hapus!');

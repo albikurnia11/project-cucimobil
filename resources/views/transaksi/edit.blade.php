@@ -5,7 +5,7 @@
             <h4 class="panel-title">Edit Data</h4>
           </div>
            <div class="panel-body">
-                 <form method="post" action="/update/{{ $data->id }}">
+                 <form method="post" action="/transaksi/update/{{ $data->id }}">
               @method('PUT') 
               @csrf
           <div class="form-group">
@@ -22,8 +22,16 @@
               <input type="text" value={{ $data->nama }} class="form-control" name="nama"/>
           </div>
           <div class="form-group">
+              <label for="biaya">Biaya</label>
+              <input type="text" value={{ $data->biaya }} class="form-control" name="biaya" />
+          </div>
+          <div class="form-group">
               <label for="bayar">Bayar</label>
               <input type="text" value={{ $data->bayar }} class="form-control" name="bayar" />
+          </div>
+          <div class="form-group">
+              <label for="diskon_harga">Diskon</label>
+              <input type="text" value={{ $data->diskon_harga }} class="form-control" name="diskon_harga" />
           </div>
           <div class="form-group">
               <label for="alamat">Kembali</label>

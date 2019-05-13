@@ -67,8 +67,8 @@ class BiayaController extends Controller
     public function edit($id)
     {
         $data = Biaya::find($id);
-        $diskons = Diskon::get();
-        return view('data.edit', compact('data','diskons'));
+      //  $diskons = Diskon::get();
+        return view('data.edit', compact('data'));
     }
 
     /**
@@ -81,7 +81,7 @@ class BiayaController extends Controller
     public function update(Request $request, $id)
     {
         $data = Biaya::find($id);
-        $data->jenis_mobil = $request->get('jenis-mobil');
+        $data->jenis_mobil = $request->get('jenis_mobil');
         $data->harga = $request->get('harga');
         $data->save();
 

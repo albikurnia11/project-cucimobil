@@ -1,3 +1,6 @@
+@extends('home')
+
+@section('content')
 <section class="main-section">
   <!-- Add Your Content Inside -->
   <div class="content">
@@ -55,3 +58,4 @@
               </div>
             </div>
           </section>
+@endsection

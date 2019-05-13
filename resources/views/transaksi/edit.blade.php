@@ -45,18 +45,6 @@
               <label for="tanggal">Tanggal</label>
               <input type="date" value={{ $data->tanggal }} class="form-control" name="tanggal" />
           </div>
-          <div class="form-group">
-            <label for="diskon_id">Diskon</label>
-           <select name="diskon_id" class="form-control">            
-            @foreach ($diskons as $item)
-            <?php if($item->id == $transaksi->diskon_id){ ?>
-           <option selected="selected" value="{{ $item->id }}">{{ $item->Harga_Promo }}</option>
-           <?php } else { ?>
-           <option value="{{ $item->id }}">{{ $item->Hrga_Promo }}</option>
-           <?php } ?>
-           @endforeach
-           </select>
-          </div>
           <button type="submit" class="btn btn-primary">Edit Data</button>
       </form>
   </div>
